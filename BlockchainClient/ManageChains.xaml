@@ -1,0 +1,108 @@
+﻿<UserControl x:Class="BlockchainClient.ManageChains"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BlockchainClient"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <DataTemplate x:Key="chainTemplate" >
+            <StackPanel Margin="5"  Orientation="Vertical">
+                <TextBlock FontSize="16" Text="{Binding Path=BlockchainName}" HorizontalAlignment="Center" />
+                <TextBlock FontSize="14" Text="{Binding Path=ChainDesription}" HorizontalAlignment="Center" TextWrapping="Wrap" MaxWidth="170"  />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="blockTemplate">
+            <StackPanel Margin="5">
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="16" Text="Index: " />
+                    <TextBlock FontSize="16" Text="{Binding Path=Index}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="16" Text="Time Created: " HorizontalAlignment="Center" />
+                    <TextBlock FontSize="16" Text="{Binding Path=TimeStamp}" HorizontalAlignment="Center" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="16" Text="PreviousHash: " HorizontalAlignment="Center" />
+                    <TextBlock FontSize="16" Text="{Binding Path=PreviousHash}" HorizontalAlignment="Center" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="16" Text="Hash: " HorizontalAlignment="Center" />
+                    <TextBlock FontSize="16" Text="{Binding Path=Hash}" HorizontalAlignment="Center" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="16" Text="Data: " HorizontalAlignment="Center" />
+                    <TextBlock FontSize="16" Text="{Binding Path=Data}" HorizontalAlignment="Center" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="16" Text="User: " HorizontalAlignment="Center" />
+                    <TextBlock FontSize="16" Text="{Binding Path=User}" HorizontalAlignment="Center" />
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Grid Background="#2c2f33" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="245"  />
+            <ColumnDefinition Width="*"  MinWidth="200" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"/>
+            <RowDefinition/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+
+
+        <DockPanel Grid.Row="0"  >
+
+
+                <Button Grid.Column="0" Content="Add Chain" Margin="5" Click="addChainButton_Click"/>
+                <Button Grid.Column="1" Content="Remove Chain" Margin="5" Click="removeChainButton_Click"/>
+
+            </DockPanel>
+         
+  
+
+
+            <Grid  Grid.Row="0"  Grid.Column="1" Background="#7289da"  >
+                <TextBlock Text="  Blockchain" VerticalAlignment="Center" />
+            <Button HorizontalAlignment="Right" Click="CheckChainButton_Click" Content="Check Chain" Margin="0,0,15,0" />
+            </Grid>
+      
+        
+        <ListBox Name="ChainsList" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2"   ItemTemplate="{StaticResource chainTemplate}" 
+                 SelectionChanged="ChainsList_SelectionChanged" SelectedIndex="0" >
+
+
+
+        </ListBox>
+
+
+        <ListBox Name="BlocksList" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" ItemTemplate="{StaticResource blockTemplate}" Background="#36393e">
+
+
+        </ListBox>
+
+        <Grid Grid.Row="3" Grid.Column="1" Background="#282b30" >
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="170"/>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+
+            <Button  Content="Add block" Click="addBlockButton_Click" Height="60" Margin="10,10,10,10" />
+            <TextBox Grid.Column="1"  
+                     x:Name="blockDataBox" Foreground="White" Margin="5,10,15,10"  Background="#424549"/>
+
+        </Grid>
+
+    </Grid>
+</UserControl>
