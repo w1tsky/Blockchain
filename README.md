@@ -1,4 +1,4 @@
 # Blockchain
 Simple Blockchain Client App
 
-![alt text](https://imgur.com/a/oazyFqA)
+![alt text](https://i.imgur.com/6DGGEMo.jpg)
