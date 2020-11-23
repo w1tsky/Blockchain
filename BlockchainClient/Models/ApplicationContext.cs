@@ -18,7 +18,7 @@ namespace BlockchainClient.Models
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseOracle(@"Data Source=192.168.1.100:1521/orcl;User Id = C##BLOCKCHAIN; Password = BLOCKCHAIN");
+            optionsBuilder.UseSqlServer(@"Data Source=SQL5097.site4now.net;Initial Catalog=DB_A6B093_witsky;User Id=DB_A6B093_witsky_admin;Password=5027028Pepsi");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
