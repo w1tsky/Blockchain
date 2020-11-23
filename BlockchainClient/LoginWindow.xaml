@@ -1,0 +1,44 @@
+﻿<Window x:Class="BlockchainClient.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BlockchainClient"
+        mc:Ignorable="d"
+        WindowStyle="None"
+
+        WindowStartupLocation="CenterScreen"
+        Title="LoginWindow" Height="350" Width="300">
+    
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome 
+          CaptionHeight="10"
+          ResizeBorderThickness="5" />
+    </WindowChrome.WindowChrome>
+    
+    <Grid Background="#2c2f33">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Background="#1e2124" >
+            <TextBlock Text="Blockchain App" Foreground="#b9bbbe" Margin="4.4,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <Ellipse Fill="Red"  Height="12" Width="13" HorizontalAlignment="Right" Margin="0,0,4,0" MouseLeftButtonDown="closeApp" />
+            <Ellipse Fill="Yellow"  Height="12" Width="13" HorizontalAlignment="Right" Margin="0,0,20,0" MouseLeftButtonDown="minimizeApp" />
+        </Grid>
+
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" MinHeight="200" VerticalAlignment="Center" >
+            <Label Content="Blockhain App" HorizontalAlignment="Center" FontSize="30" Margin="20"/>
+            <Label Content="UserName" />
+            <TextBox Name="LoginBox" Height="23"   Text="" Width="250"/>
+            <Label  Content="Password" VerticalAlignment="Top"/>
+            <PasswordBox Name="PasswordBox"  Height="23"   Width="250"/>
+            <Button Content="Login" HorizontalAlignment="Center" Width="75" Click="LoginButton_Click" Margin="30"/>
+        </StackPanel>
+
+
+    </Grid>
+</Window>

@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="BlockchainClient.ManageUsers"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BlockchainClient"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <DataTemplate x:Key="userTemplate" >
+            <StackPanel Margin="5"  Orientation="Vertical">
+                <TextBlock FontSize="16" Text="{Binding Path=UserID}" HorizontalAlignment="Center" />
+                <TextBlock FontSize="14" Text="{Binding Path=Login}" HorizontalAlignment="Center" TextWrapping="Wrap" MaxWidth="170"  />
+            </StackPanel>
+        </DataTemplate>
+
+        
+    </UserControl.Resources>
+
+    <Grid Background="#2c2f33" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="245"  />
+            <ColumnDefinition Width="*"  MinWidth="200" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+
+
+        <DockPanel Grid.Row="0"  >
+            <Button Grid.Column="0" Content="Add User" Margin="5" Click="addUserButton_Click"/>
+            <Button Grid.Column="1" Content="Remove User" Margin="5" Click="removeUserButton_Click"/>
+        </DockPanel>
+
+
+
+
+        <Grid  Grid.Row="0"  Grid.Column="1" Background="#7289da"  >
+            <TextBlock Text="User Details" VerticalAlignment="Center" Margin="20,0,0,0" FontSize="20" Foreground="White" />
+        </Grid>
+
+
+        <ListBox Name="UserList" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2"   ItemTemplate="{StaticResource userTemplate}" 
+                 SelectionChanged="UserList_SelectionChanged" SelectedIndex="0" >
+
+        </ListBox>
+
+        <StackPanel Margin="10" Name="UserDetails" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" >
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="16" Text=" User ID: " Foreground="White" />
+                <TextBlock FontSize="16" Text="{Binding Path=UserID}" Foreground="White" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="16" Text=" Username: " Foreground="White" />
+                <TextBlock FontSize="16" Text="{Binding Path=Login}" Foreground="White" />
+            </StackPanel>
+
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="16" Text=" Userole: " Foreground="White" />
+                <TextBlock FontSize="16" Text="{Binding Path=Role}" Foreground="White" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="16" Text=" Userdata: " Foreground="White"/>
+                <TextBlock FontSize="16" Text="{Binding Path=UserData}" Foreground="White" />
+            </StackPanel>
+        </StackPanel>
+
+
+
+    </Grid>
+</UserControl>
