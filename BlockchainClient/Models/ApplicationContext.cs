@@ -18,7 +18,7 @@ namespace BlockchainClient.Models
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=SQL5097.site4now.net;Initial Catalog=DB_A6B093_witsky;User Id=DB_A6B093_witsky_admin;Password=5027028Pepsi");
+            optionsBuilder.UseSqlServer(@"www");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
